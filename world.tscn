@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://b6e53yhituxa3"]
+
+[ext_resource type="Script" path="res://world.gd" id="1_4ynq4"]
+[ext_resource type="TileSet" uid="uid://bco2vu61lxhv" path="res://placeholder_tileset.tres" id="1_t5ly0"]
+[ext_resource type="Texture2D" uid="uid://ydkny27dsue8" path="res://selection.png" id="3_3ofrn"]
+[ext_resource type="Script" path="res://camera.gd" id="3_g20qb"]
+[ext_resource type="PackedScene" uid="uid://c7iq1wgl1j6qc" path="res://worker.tscn" id="4_8efcs"]
+[ext_resource type="PackedScene" uid="uid://birvxc3op73p0" path="res://test_factory.tscn" id="5_5yxyl"]
+
+[node name="World" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_4ynq4")
+
+[node name="WorldMap" type="TileMap" parent="."]
+texture_filter = 1
+scale = Vector2(4, 4)
+tile_set = ExtResource("1_t5ly0")
+cell_quadrant_size = 8
+format = 2
+layer_0/name = "main"
+layer_0/tile_data = PackedInt32Array(8, 65536, 0, 65544, 65536, 0, 131080, 65536, 0, 196616, 65536, 0, 262152, 65536, 0, 327688, 65536, 0, 327687, 65536, 0, 327686, 65536, 0, 327685, 65536, 0, 327684, 65536, 0, 327683, 65536, 0, 327682, 65536, 0, 327681, 65536, 0)
+
+[node name="CameraHolder" type="Node2D" parent="."]
+
+[node name="Camera" type="Camera2D" parent="CameraHolder"]
+current = true
+script = ExtResource("3_g20qb")
+
+[node name="Selection" type="Sprite2D" parent="CameraHolder"]
+z_index = 12
+scale = Vector2(4, 4)
+texture = ExtResource("3_3ofrn")
+centered = false
+
+[node name="Workers" type="Node2D" parent="."]
+
+[node name="Worker" parent="Workers" instance=ExtResource("4_8efcs")]
+
+[node name="Props" type="Node2D" parent="."]
+
+[node name="TestFactory" parent="Props" instance=ExtResource("5_5yxyl")]
