@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://birvxc3op73p0"]
-
-[ext_resource type="Texture2D" uid="uid://cg8nvofn47e7h" path="res://test_building.png" id="1_xlif7"]
-
-[node name="TestFactory" type="Sprite2D" groups=["props"]]
-scale = Vector2(2, 2)
-texture = ExtResource("1_xlif7")
-centered = false
